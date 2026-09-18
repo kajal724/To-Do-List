@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="ProResume - Professional Resume Builder">
+
+    <title>ProResume | Resume Builder</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Resume Templates -->
+    <link rel="stylesheet" href="templates/modern.css">
+    <link rel="stylesheet" href="templates/classic.css">
+    <link rel="stylesheet" href="templates/minimal.css">
+
+
+</head>
+
+
+<body>
+    
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            PR
+        </div>
+
+        <div>
+            <div class="logo">
+                Pro<span>Resume</span>
+            </div>
+
+            <small>
+                Professional Resume Builder
+            </small>
+        </div>
+
+    </div>
+
+
+    <div class="nav-buttons">
+
+        <button
+            type="button"
+            class="nav-btn"
+            onclick="saveResume()">
+
+            💾 Save
+
+        </button>
+
+
+        <button
+            type="button"
+            class="nav-btn danger-btn"
+            onclick="clearResume()">
+
+            🗑 Clear
+
+        </button>
+
+
+        <button
+            type="button"
+            class="download-btn"
+            onclick="downloadPDF()">
+
+            📄 Download PDF
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="app">
+
+
+    <!-- =================================================
+         EDITOR
+    ================================================== -->
+
+    <aside class="editor">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="page-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    RESUME BUILDER
+                </span>
+
+                <h1>
+                    Build your resume
+                </h1>
+
+                <p>
+                    Create a professional resume that
+                    stands out.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RESUME STRENGTH
+        ================================================== -->
+
+        <div class="strength-card">
+
+            <div class="strength-top">
+
+                <div>
+
+                    <span class="strength-label">
+                        Resume Strength
+                    </span>
+
+                    <h3 id="progressText">
+                        0%
+                    </h3>
+
+                </div>
+
+
+                <div class="strength-icon">
+                    ✦
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div id="progressFill"></div>
+
+            </div>
+
+
+            <p id="strengthMessage">
+                Start adding your information.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TEMPLATE SELECTOR
+        ================================================== -->
+
+        <div class="card template-card">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <div>
+                        <h2>
+                            Choose Template
+                        </h2>
+
+                        <p>
+                            Select a style for your resume
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="template-grid">
+
+
+                <button
+                    type="button"
+                    class="template-option"
+                    onclick="changeTemplate('modern')">
+
+                    <div class="template-mini modern-mini">
+
+                        <div class="mini-header"></div>
+
+                        <div class="mini-line"></div>
+                        <div class="mini-line short"></div>
+
+                        <div class="mini-section"></div>
+
+                        <div class="mini-line"></div>
+                        <div class="mini-line"></div>
+
+                    </div>
+
+                    <strong>
+                        Modern
+                    </strong>
+
+                    <span>
+                        Clean & Professional
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="template-option"
+                    onclick="changeTemplate('classic')">
+
+                    <div class="template-mini classic-mini">
+
+                        <div class="mini-header"></div>
+
+                        <div class="mini-line"></div>
+                        <div class="mini-line short"></div>
+
+                        <div class="mini-section"></div>
+
+                        <div class="mini-line"></div>
+                        <div class="mini-line"></div>
+
+                    </div>
+
+                    <strong>
+                        Classic
+                    </strong>
+
+                    <span>
+                        Traditional & Elegant
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="template-option"
+                    onclick="changeTemplate('minimal')">
+
+                    <div class="template-mini minimal-mini">
+
+                        <div class="mini-header"></div>
+
+                        <div class="mini-line"></div>
+                        <div class="mini-line short"></div>
+
+                        <div class="mini-section"></div>
+
+                        <div class="mini-line"></div>
+                        <div class="mini-line"></div>
+
+                    </div>
+
+                    <strong>
+                        Minimal
+                    </strong>
+
+                    <span>
+                        Simple & Modern
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+        <!-- =====================================================
+     RESUME CUSTOMIZATION
+===================================================== -->
+
+<div class="card">
+
+    <div class="section-heading">
+
+        <div class="section-heading-left">
+
+            <span class="section-number">
+                02
+            </span>
+
+            <div>
+                <h2>Customize Resume</h2>
+
+                <p>
+                    Change your resume appearance
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="customize-row">
+
+        <div class="custom-option">
+
+            <label>
+                Accent Color
+            </label>
+
+            <div class="color-options">
+
+                <button
+                    class="color-dot purple"
+                    onclick="changeResumeColor('#635bff')">
+                </button>
+
+                <button
+                    class="color-dot blue"
+                    onclick="changeResumeColor('#2563eb')">
+                </button>
+
+                <button
+                    class="color-dot green"
+                    onclick="changeResumeColor('#059669')">
+                </button>
+
+                <button
+                    class="color-dot orange"
+                    onclick="changeResumeColor('#ea580c')">
+                </button>
+
+                <button
+                    class="color-dot red"
+                    onclick="changeResumeColor('#dc2626')">
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="custom-option">
+
+            <label>
+                Resume Font
+            </label>
+
+            <select
+                id="resumeFont"
+                onchange="changeResumeFont(this.value)">
+
+                <option value="Arial">
+                    Arial
+                </option>
+
+                <option value="Georgia">
+                    Georgia
+                </option>
+
+                <option value="Verdana">
+                    Verdana
+                </option>
+
+                <option value="Trebuchet MS">
+                    Trebuchet MS
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     SECTION VISIBILITY
+===================================================== -->
+
+<div class="card">
+
+    <div class="section-heading">
+
+        <div class="section-heading-left">
+
+            <span class="section-number">
+                03
+            </span>
+
+            <div>
+                <h2>Resume Sections</h2>
+
+                <p>
+                    Choose what appears in your resume
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="visibility-list">
+
+        <div class="visibility-item">
+
+            <div>
+                <strong>Profile</strong>
+                <small>Professional summary</small>
+            </div>
+
+            <button
+                type="button"
+                class="visibility-btn active"
+                data-section="profile"
+                onclick="toggleSection('profile', this)">
+                👁
+            </button>
+
+        </div>
+
+
+        <div class="visibility-item">
+
+            <div>
+                <strong>Education</strong>
+                <small>Academic background</small>
+            </div>
+
+            <button
+                type="button"
+                class="visibility-btn active"
+                data-section="education"
+                onclick="toggleSection('education', this)">
+                👁
+            </button>
+
+        </div>
+
+
+        <div class="visibility-item">
+
+            <div>
+                <strong>Skills</strong>
+                <small>Your technical skills</small>
+            </div>
+
+            <button
+                type="button"
+                class="visibility-btn active"
+                data-section="skills"
+                onclick="toggleSection('skills', this)">
+                👁
+            </button>
+
+        </div>
+
+
+        <div class="visibility-item">
+
+            <div>
+                <strong>Experience</strong>
+                <small>Work experience</small>
+            </div>
+
+            <button
+                type="button"
+                class="visibility-btn active"
+                data-section="experience"
+                onclick="toggleSection('experience', this)">
+                👁
+            </button>
+
+        </div>
+
+
+        <div class="visibility-item">
+
+            <div>
+                <strong>Projects</strong>
+                <small>Your best projects</small>
+            </div>
+
+            <button
+                type="button"
+                class="visibility-btn active"
+                data-section="projects"
+                onclick="toggleSection('projects', this)">
+                👁
+            </button>
+
+        </div>
+
+
+        <div class="visibility-item">
+
+            <div>
+                <strong>Certificates</strong>
+                <small>Your certifications</small>
+            </div>
+
+            <button
+                type="button"
+                class="visibility-btn active"
+                data-section="certificates"
+                onclick="toggleSection('certificates', this)">
+                👁
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+        <!-- =================================================
+             PERSONAL INFORMATION
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-left">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Personal Information
+                        </h2>
+
+                        <p>
+                            Tell us about yourself
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO -->
+
+            <div class="photo-upload">
+
+                <div class="photo-preview-box">
+
+                    <img
+                        id="editorPhotoPreview"
+                        src=""
+                        alt="Profile">
+
+                    <span id="photoPlaceholder">
+                        👤
+                    </span>
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <strong>
+                        Profile Photo
+                    </strong>
+
+                    <p>
+                        Add a professional profile photo
+                    </p>
+
+                    <label
+                        for="photo"
+                        class="upload-btn">
+
+                        📷 Upload Photo
+
+                    </label>
+
+                    <input
+                        type="file"
+                        id="photo"
+                        accept="image/*"
+                        onchange="uploadPhoto(event)">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <div class="form-grid">
+
+
+                <div class="form-group full">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="e.g. Rishika Kushwah"
+                        oninput="updateResume()">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="title">
+                        Professional Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="e.g. Software Developer"
+                        oninput="updateResume()">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        oninput="updateResume()">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="+91 9876543210"
+                        oninput="updateResume()">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Indore, India"
+                        oninput="updateResume()">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="linkedin">
+                        LinkedIn
+                    </label>
+
+                    <input
+                        type="text"
+                        id="linkedin"
+                        placeholder="linkedin.com/in/username"
+                        oninput="updateResume()">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="github">
+                        GitHub
+                    </label>
+
+                    <input
+                        type="text"
+                        id="github"
+                        placeholder="github.com/username"
+                        oninput="updateResume()">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SUMMARY
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-left">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Professional Summary
+                        </h2>
+
+                        <p>
+                            Write a short introduction
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <textarea
+                id="summary"
+                rows="6"
+                placeholder="Example: Motivated Computer Science student with experience in JavaScript, Java and web development..."
+                oninput="updateResume()"></textarea>
+
+
+            <div class="helper">
+                💡 Keep it short, clear and focused on your strengths.
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             EDUCATION
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-left">
+
+                    <span class="section-number">
+                        04
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Education
+                        </h2>
+
+                        <p>
+                            Add your academic background
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    onclick="addEducation()">
+
+                    + Add Education
+
+                </button>
+
+            </div>
+
+
+            <div id="educationContainer"></div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SKILLS
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-left">
+
+                    <span class="section-number">
+                        05
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Skills
+                        </h2>
+
+                        <p>
+                            Highlight your strongest skills
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-input">
+
+                <input
+                    type="text"
+                    id="skillInput"
+                    placeholder="e.g. JavaScript"
+                    onkeydown="
+                        if(event.key === 'Enter')
+                        addSkill()
+                    ">
+
+
+                <button
+                    type="button"
+                    onclick="addSkill()">
+
+                    Add Skill
+
+                </button>
+
+            </div>
+
+
+            <div id="skillsContainer"></div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             EXPERIENCE
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-left">
+
+                    <span class="section-number">
+                        06
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Experience
+                        </h2>
+
+                        <p>
+                            Add internships or work experience
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    onclick="addExperience()">
+
+                    + Add Experience
+
+                </button>
+
+            </div>
+
+
+            <div id="experienceContainer"></div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-left">
+
+                    <span class="section-number">
+                        07
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Projects
+                        </h2>
+
+                        <p>
+                            Showcase your best work
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    onclick="addProject()">
+
+                    + Add Project
+
+                </button>
+
+            </div>
+
+
+            <div id="projectsContainer"></div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CERTIFICATES
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-heading">
+
+                <div class="section-heading-left">
+
+                    <span class="section-number">
+                        08
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Certificates
+                        </h2>
+
+                        <p>
+                            Add your certifications
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    onclick="addCertificate()">
+
+                    + Add Certificate
+
+                </button>
+
+            </div>
+
+
+            <div id="certificatesContainer"></div>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =================================================
+         PREVIEW
+    ================================================== -->
+
+    <main class="preview-area">
+
+
+        <div class="preview-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    LIVE PREVIEW
+                </span>
+
+                <h2>
+                    Your Resume
+                </h2>
+
+                <p>
+                    Drag sections to change their order.
+                </p>
+
+            </div>
+
+
+            <div class="preview-status">
+
+                <span class="status-dot"></span>
+
+                Live
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESUME -->
+
+        <div
+            id="resume"
+            class="resume modern">
+
+
+            <!-- =================================================
+                 HEADER
+            ================================================== -->
+
+            <div class="resume-header">
+
+
+                <img
+                    id="previewPhoto"
+                    class="profile-photo"
+                    src=""
+                    alt="Profile Photo">
+
+
+                <div class="header-info">
+
+                    <h1 id="previewName">
+                        Your Name
+                    </h1>
+
+
+                    <h3 id="previewTitle">
+                        Professional Title
+                    </h3>
+
+
+                    <div class="contact">
+
+                        <span id="previewEmail">
+                            email@example.com
+                        </span>
+
+                        <span id="previewPhone">
+                            +91 XXXXX XXXXX
+                        </span>
+
+                        <span id="previewLocation">
+                            Location
+                        </span>
+
+                    </div>
+
+
+                    <div class="links">
+
+                        <span id="previewLinkedin">
+                            LinkedIn
+                        </span>
+
+                        <span id="previewGithub">
+                            GitHub
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROFILE -->
+
+            <section
+                class="resume-section draggable-section"
+                draggable="true"
+                data-section="profile">
+
+                <h2>
+                    PROFILE
+                </h2>
+
+                <p id="previewSummary">
+                    Your professional summary will appear here.
+                </p>
+
+            </section>
+
+
+
+            <!-- EDUCATION -->
+
+            <section
+                class="resume-section draggable-section"
+                draggable="true"
+                data-section="education">
+
+                <h2>
+                    EDUCATION
+                </h2>
+
+                <div id="previewEducation"></div>
+
+            </section>
+
+
+
+            <!-- SKILLS -->
+
+            <section
+                class="resume-section draggable-section"
+                draggable="true"
+                data-section="skills">
+
+                <h2>
+                    SKILLS
+                </h2>
+
+                <div id="previewSkills"></div>
+
+            </section>
+
+
+
+            <!-- EXPERIENCE -->
+
+            <section
+                class="resume-section draggable-section"
+                draggable="true"
+                data-section="experience">
+
+                <h2>
+                    EXPERIENCE
+                </h2>
+
+                <div id="previewExperience"></div>
+
+            </section>
+
+
+
+            <!-- PROJECTS -->
+
+            <section
+                class="resume-section draggable-section"
+                draggable="true"
+                data-section="projects">
+
+                <h2>
+                    PROJECTS
+                </h2>
+
+                <div id="previewProjects"></div>
+
+            </section>
+
+
+
+            <!-- CERTIFICATES -->
+
+            <section
+                class="resume-section draggable-section"
+                draggable="true"
+                data-section="certificates">
+
+                <h2>
+                    CERTIFICATES
+                </h2>
+
+                <div id="previewCertificates"></div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- FLOATING DOWNLOAD -->
+
+        <button
+            class="floating-download"
+            type="button"
+            onclick="downloadPDF()">
+
+            <span>📄</span>
+
+            Download PDF
+
+        </button>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     HTML2PDF
+===================================================== -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+</script>
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
