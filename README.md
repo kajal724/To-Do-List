@@ -29,5 +29,3 @@ This project was created to practice basic HTML structure, CSS styling, JavaScri
 
 ## Author
 kajal chourey
-
-**[Your Name]**
